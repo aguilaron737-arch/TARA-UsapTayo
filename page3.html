@@ -1,0 +1,111 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emotion Check</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+background: #f0f4f8;
+margin: 0;
+padding: 0;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+height: 100vh;
+}
+
+.container {
+background: white;
+padding: 30px;
+border-radius: 15px;
+box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+width: 350px;
+text-align: center;
+}
+
+h2 {
+margin-bottom: 20px;
+color: #333;
+}
+
+.response-box {
+background: #e8f0fe;
+padding: 15px;
+border-radius: 10px;
+margin-bottom: 15px;
+}
+
+textarea {
+width: 100%;
+height: 80px;
+padding: 10px;
+border-radius: 8px;
+border: 1px solid #ccc;
+resize: none;
+font-size: 14px;
+}
+
+.btn {
+background: #4CAF50;
+color: white;
+border: none;
+padding: 10px 15px;
+border-radius: 8px;
+cursor: pointer;
+margin-top: 10px;
+}
+
+.btn:hover {
+background: #45a049;
+}
+
+.register-section {
+margin-top: 25px;
+border-top: 1px solid #ddd;
+padding-top: 15px;
+}
+
+.register-section button {
+background: #2196F3;
+}
+
+.register-section button:hover {
+background: #1976D2;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h2>Emotion Check In</h2>
+<p>Kumusta ka ngayon?</p>
+
+<div class="response-box">
+<p><em>"Response Quote will appear here"</em></p>
+</div>
+
+<textarea placeholder="Type your feelings here..."></textarea><br>
+
+<button class="btn" onclick="showResponse()">Okay lang</button>
+
+<div class="register-section">
+<h4>Register</h4>
+<button class="btn">Register for a More Talks</button>
+</div>
+</div>
+
+<script>
+function showResponse() {
+const text = document.querySelector('textarea').value.trim();
+const responseBox = document.querySelector('.response-box p');
+if (text) {
+responseBox.textContent = `You said: "${text}"`;
+} else {
+responseBox.textContent = "Please enter how you feel first ";
+}
+}
+</script>
+</body>
+</html>
