@@ -1,0 +1,54 @@
+/* ====== style.css ====== */
+
+/* General page layout */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f6f6f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Logo circular container */
+.logo-container {
+    background-color: #8d6ab8; /* purple tone */
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Logo image */
+.logo-container img {
+    width: 80%;
+    height: auto;
+    border-radius: 50%;
+}
+
+/* Sign-up button */
+.btn-signup {
+    margin-top: 30px;
+    background-color: #a05eb5;
+    color: #fff;
+    border: none;
+    padding: 12px 28px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-signup:hover {
+    background-color: #8c4ca1;
+}
+
+.btn-signup:active {
+    background-color: #7a3f90;
+}

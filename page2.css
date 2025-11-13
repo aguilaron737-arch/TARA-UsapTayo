@@ -1,0 +1,71 @@
+/* Container */
+.filter-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Button styling (purple theme) */
+.filter-btn {
+  background-color: #7a1fa2;
+  color: white;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0px 4px 10px rgba(122, 31, 162, 0.3);
+  min-width: 200px;
+}
+
+.filter-btn:hover {
+  background-color: #9c27b0;
+  box-shadow: 0px 6px 14px rgba(122, 31, 162, 0.4);
+}
+
+/* Dropdown menu styling */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f5e8ff;
+  min-width: 600px; /* much wider for landscape layout */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  padding: 12px 16px;
+  z-index: 1;
+  margin-top: 5px;
+
+  /* Make items appear in grid for landscape form */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 8px 16px;
+}
+
+/* Show dropdown when hovering over the container */
+.filter-dropdown:hover .dropdown-content {
+  display: grid;
+}
+
+/* Labels and checkbox list */
+.dropdown-content label {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  color: #4a0072;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  border-radius: 6px;
+}
+
+.dropdown-content label:hover {
+  background-color: #e1bee7;
+}
+
+/* Checkbox styling */
+input[type="checkbox"] {
+  accent-color: #7a1fa2;
+  transform: scale(1.2);
+  margin-right: 10px;
+}

@@ -1,0 +1,41 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emotion Check</title>
+  <link rel="stylesheet" href="page3.css">
+
+</head>
+<body>
+<div class="container">
+<h2>Emotion Check In</h2>
+<p>Kumusta ka ngayon?</p>
+
+<div class="response-box">
+<p><em>"Response Quote will appear here"</em></p>
+</div>
+
+<textarea placeholder="Type your feelings here..."></textarea><br>
+
+<button class="btn" onclick="showResponse()">Okay lang</button>
+
+<div class="register-section">
+<h4>Register</h4>
+<button class="btn">Register for a More Talks</button>
+</div>
+</div>
+
+<script>
+function showResponse() {
+const text = document.querySelector('textarea').value.trim();
+const responseBox = document.querySelector('.response-box p');
+if (text) {
+responseBox.textContent = `You said: "${text}"`;
+} else {
+responseBox.textContent = "Please enter how you feel first ";
+}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tara Usap Tayo Chat</title>
+<link rel="stylesheet" href="page5.css">
+</head>
+<body>
+
+<div class="chat-container">
+    <div class="chat-header">💬 Tara Usap Tayo</div>
+    
+    <div class="chat-box" id="chat-box">
+        <div class="bot-message">Hi! Kumusta ka? 😊</div>
+    </div>
+
+    <div class="chat-input">
+        <input type="text" id="user-input" placeholder="Type your message..." />
+        <button id="send-btn">Send</button>
+    </div>
+</div>
+
+<script>
+const sendBtn = document.getElementById('send-btn');
+const userInput = document.getElementById('user-input');
+const chatBox = document.getElementById('chat-box');
+
+// Function to add messages
+function addMessage(message, sender) {
+    const msgDiv = document.createElement('div');
+    msgDiv.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
+    msgDiv.textContent = message;
+    chatBox.appendChild(msgDiv);
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+// Only allow user to add messages
+sendBtn.addEventListener('click', () => {
+    const text = userInput.value.trim();
+    if (text !== '') {
+        addMessage(text, 'user'); // your messages
+        userInput.value = '';
+    }
+});
+
+// Enter key to send
+userInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') sendBtn.click();
+});
+</script>
+
+
+</body>
+</html>
