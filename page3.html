@@ -1,40 +1,134 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Emotion Check</title>
-  <link rel="stylesheet" href="page3.css">
-
+<link rel="stylesheet" href="page3.css">
 </head>
 <body>
+
 <div class="container">
-<h2>Emotion Check In</h2>
+    <h2>Emotion Check In</h2>
 
-<div class="response-box">
-<p><em>"Response Quote will appear here"</em></p>
-</div>
+    <div class="response-box">
+        <p><em>"Response Quote will appear here"</em></p>
+    </div>
 
-<textarea placeholder="Type your feelings here..."></textarea><br>
+    <textarea placeholder="Type your feelings here..."></textarea><br>
 
-<button class="btn" onclick="showResponse()">Send</button>
+    <button class="btn" onclick="showResponse()">Send</button>
 
-<div class="register-section">
-<h4>Register</h4>
-<button class="btn">Register for a More Talks</button>
-</div>
+    <div class="register-section">
+        <h4>Register</h4>
+        <!-- ⭐ ADDED onclick to move to page 4 -->
+        <button class="btn" onclick="goToPage4()">Register for More Talks</button>
+    </div>
 </div>
 
 <script>
-function showResponse() {
-const text = document.querySelector('textarea').value.trim();
-const responseBox = document.querySelector('.response-box p');
-if (text) {
-responseBox.textContent = `You said: "${text}"`;
-} else {
-responseBox.textContent = "Please enter how you feel first ";
+// List of auto-quotes based on emotion keywords
+const emotionQuotes = {
+    sad: [
+        "It's okay to feel sad sometimes. Healing takes time, and you're doing your best.",
+        "Your feelings are valid. Even the heaviest storms eventually pass.",
+        "You don’t have to be strong all the time. It's okay to rest.",
+        "Crying doesn’t mean you're weak. It means you’ve been strong for too long.",
+        "Your heart may be heavy now, but it won’t feel this way forever.",
+        "It’s okay to slow down and feel the emotions you’ve been holding in.",
+        "Even on the saddest days, you deserve kindness—especially from yourself.",
+        "You are allowed to feel lost; it means you're searching for something meaningful."
+    ],
+
+    happy: [
+        "I’m glad you're feeling happy! Hold onto that feeling and share it with others.",
+        "Happiness looks good on you—keep shining!",
+        "Celebrate even the small joys; they make life brighter.",
+        "Your smile has a way of lighting up moments—keep it close.",
+        "May your happiness today grow into something even bigger tomorrow.",
+        "Treasure this feeling, it's a reminder that good things still exist.",
+        "Joy is a gift—embrace it fully.",
+        "The world feels lighter when you're happy. Enjoy it!"
+    ],
+
+    tired: [
+        "You deserve rest. Don’t forget to take care of yourself.",
+        "It’s okay to slow down—your body and mind need it too.",
+        "Rest is not a weakness; it’s part of strength.",
+        "You’ve been carrying so much—no wonder you're tired. Take a moment to breathe.",
+        "Being tired doesn’t mean you're failing; it means you're trying.",
+        "Pause if you must, but never forget to be gentle with yourself.",
+        "Rest is productive too. Don’t feel guilty.",
+        "You don't need to push yourself every day. Recharge."
+    ],
+
+    anxious: [
+        "Take a deep breath—you're doing better than you think.",
+        "Even when your mind feels heavy, remember you are stronger than your worries.",
+        "One step at a time. You don’t need to figure everything out today.",
+        "It’s okay to not have control over everything.",
+        "Your feelings are real, but they don’t define your future.",
+        "Your anxiety is loud, but your strength is louder.",
+        "You're safe. You’re here. Breathe.",
+        "You’ve survived every anxious moment so far—you’ll survive this too."
+    ],
+
+    angry: [
+        "It's okay to feel angry—just don’t forget to take a moment to breathe.",
+        "Your feelings matter. Let anger pass through, not stay within.",
+        "Try to release the tension gently; peace comes after acknowledging the fire.",
+        "Anger is a sign that something needs attention, not destruction.",
+        "Before reacting, take a moment—clarity often follows stillness.",
+        "You are not your anger. You are someone experiencing anger.",
+        "Strong emotions mean you care deeply. That’s human.",
+        "Let the anger fade, not consume you."
+    ]
+};
+
+// Pick a random quote
+function randomQuote(list) {
+    return list[Math.floor(Math.random() * list.length)];
 }
+
+function showResponse() {
+    const text = document.querySelector('textarea').value.toLowerCase().trim();
+    const responseBox = document.querySelector('.response-box p');
+
+    if (!text) {
+        responseBox.textContent = "Please enter how you feel first.";
+        return;
+    }
+
+    let selectedQuote = null;
+
+    // Detect emotion by keywords
+    if (text.includes("lungkot") || text.includes("sad") || text.includes("malungkot")) {
+        selectedQuote = randomQuote(emotionQuotes.sad);
+    } 
+    else if (text.includes("saya") || text.includes("masaya") || text.includes("happy")) {
+        selectedQuote = randomQuote(emotionQuotes.happy);
+    }
+    else if (text.includes("pagod") || text.includes("tired") || text.includes("exhausted")) {
+        selectedQuote = randomQuote(emotionQuotes.tired);
+    }
+    else if (text.includes("takot") || text.includes("kabado") || text.includes("anxious") || text.includes("anxiety")) {
+        selectedQuote = randomQuote(emotionQuotes.anxious);
+    }
+    else if (text.includes("galit") || text.includes("angry") || text.includes("inis")) {
+        selectedQuote = randomQuote(emotionQuotes.angry);
+    }
+    else {
+        selectedQuote = "Thank you for sharing your feelings. Remember, your emotions are valid and you are not alone.";
+    }
+
+    responseBox.textContent = selectedQuote;
+}
+
+
+function goToPage4() {
+    window.location.href = "page4.html"; 
 }
 </script>
+
 </body>
 </html>
